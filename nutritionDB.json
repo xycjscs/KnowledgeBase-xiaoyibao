@@ -1,0 +1,26 @@
+[
+    {
+        "name": "給癌症病人的飲食指引",
+        "description": "增強病人對治療的承受力和加速復原",
+        "author":"香港防癌会",
+        "link": "https://www.hkacs.org.hk/uploadimages/download/00971/20PPfood_20Oct.pdf"
+    },
+    {
+        "name": "患癌期间的健康饮食",
+        "description": "《患癌期间的健康饮食》是专门为帮助您、您的家人或朋友应对由癌症本身及 癌症治疗所导致的饮食问题而编写。",
+        "author":"新加坡癌症协会",
+        "link": "https://static.abbottnutrition.com/cms/abbottadult.com.sg/MEDIA/PatientBooklet_edit_chinese.pdf"
+    },
+    {
+        "name": "營養滿分，抗癌加分",
+        "description": "內容涵括了病人在治療前、治療期間和治療後，如何正確 的飲食，相信面對癌症治療的病人，能對「吃甚麼?」「如何進食?」有更完整 而正確的資訊，是一本相當有用的參考書。",
+        "author":"癌症希望協會",
+        "link": "https://www1.cgmh.org.tw/khcc/datas/%B6%BC%AD%B9%BA%A1%A4%C0%A1A%A7%DC%C0%F9%A5%5B%A4%C0.pdf"
+    },
+    {
+        "name": "癌症与营养",
+        "description": "癌症病人摄取营养的目标，癌症病人的特殊营养需求，癌症治疗副作用的饮食应对方法。",
+        "author":"新加坡国立癌症中心",
+        "link": "https://www.nccs.com.sg/patient-care/supportive-care/Documents/Cancer_and_Nutrition_Chinese.pdf"
+    }
+]
