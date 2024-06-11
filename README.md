@@ -47,3 +47,5 @@ python downloader.py nutritionDB.json
 [ ] QA对数据库
 
 [ ] 专业人士审核机制
+
+[ ] 自动将文档更新于一链接
