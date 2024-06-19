@@ -4,77 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>癌症患者支援数据库</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .guide {
-            margin-bottom: 20px;
-        }
-        .guide h3 {
-            margin: 0 0 5px;
-        }
-        .guide a {
-            color: blue;
-            text-decoration: none;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-        }
-    </style>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap-utilities.min.css"
+    >
+    <script type="module" src="src/index.tsx"></script>
 </head>
-<body>
-    <h1>癌症患者支援数据库</h1>
-    <p><a href="https://github.com/xycjscs/KnowledgeBase-xiaoyibao" target="_blank">访问GitHub页面</a></p>
-
-    <div id="nutrition" class="section">
-        <h2>营养建议</h2>
-        <div class="guides"></div>
-    </div>
-
-    <div id="psychological" class="section">
-        <h2>心理支持</h2>
-        <div class="guides"></div>
-    </div>
-
-    <div id="hyperuricemia" class="section">
-        <h2>高尿酸血症指南</h2>
-        <div class="guides"></div>
-    </div>
-
-    <script>
-        async function fetchAndRenderData(url, containerId) {
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const container = document.getElementById(containerId).querySelector('.guides');
-                data.forEach(guide => {
-                    const guideElement = document.createElement('div');
-                    guideElement.classList.add('guide');
-                    guideElement.innerHTML = `
-                        <h3>《${guide.name}》</h3>
-                        <p>${guide.description}</p>
-                        <p><strong>作者:</strong> ${guide.author}</p>
-                        <p><a href="${guide.link}" target="_blank">阅读指南</a></p>
-                        <p></p>
-                    `;
-                    container.appendChild(guideElement);
-                });
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchAndRenderData('nutritionDB.json', 'nutrition');
-            fetchAndRenderData('PsychologicalDB.json', 'psychological');
-            fetchAndRenderData('HyperuricemiaDB.json', 'hyperuricemia');
-        });
-    </script>
+<body class="m-4">
 </body>
 </html>
