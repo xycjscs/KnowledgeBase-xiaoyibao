@@ -1,4 +1,4 @@
-import NutritionDB from "../data/nutritionDB.json";
+import NutritionDB from "../../data/nutritionDB.json";
 
 export type Guide = (typeof NutritionDB)[0];
 
