@@ -1,0 +1,19 @@
+import { GuideSection } from "../component/GuideSection";
+
+import HyperuricemiaDB from "../data/HyperuricemiaDB.json";
+import PsychologicalDB from "../data/PsychologicalDB.json";
+import NutritionDB from "../data/nutritionDB.json";
+
+# 癌症患者支援数据库
+
+[访问 GitHub 页面](https://github.com/xycjscs/KnowledgeBase-xiaoyibao)
+
+<GuideSection id="nutrition" title="营养建议" data={NutritionDB} />
+
+<GuideSection id="psychological" title="心理支持" data={PsychologicalDB} />
+
+<GuideSection
+  id="hyperuricemia"
+  title="高尿酸血症指南"
+  data={HyperuricemiaDB}
+/>
