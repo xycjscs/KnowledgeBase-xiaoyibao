@@ -1,19 +1,37 @@
 {
   "name": "@xiaoyibao/knowledge-base",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
+    "@opendocsg/pdf2md": "^0.1.31",
+    "@tech_query/node-toolkit": "^1.2.1",
+    "cli-progress": "^3.12.0",
+    "commander-jsx": "^0.6.9",
+    "core-js": "^3.37.1",
     "dom-renderer": "^2.1.8",
+    "dotenv": "^16.4.5",
+    "edkit": "^1.2.1",
+    "happy-dom": "^14.12.3",
+    "koajax": "^1.1.2",
+    "office-text-extractor": "^3.0.3",
+    "tsx": "^4.15.6",
     "web-utility": "^4.4.0"
   },
   "devDependencies": {
     "@parcel/config-default": "~2.12.0",
+    "@types/cli-progress": "^3.11.5",
+    "@types/node": "^18.19.37",
     "parcel": "~2.12.0",
     "parcel-transformer-mdx": "^0.3.2"
   },
   "scripts": {
+    "install": "cp -n .env.example .env",
     "clean": "rm -rf .parcel-cache/ dist/",
     "start": "npm run clean  &&  parcel src/index.html",
-    "build": "npm run clean  &&  parcel build src/index.html --public-url ."
+    "build": "npm run clean  &&  parcel build src/index.html --public-url .",
+    "tool": "cd tool/  &&  tsx index.tsx"
   }
 }

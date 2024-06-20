@@ -1,5 +1,6 @@
-# downloaded content
-downloads
+# CLI files
+.env
+downloads/
 
 # Web front-end
 node_modules/

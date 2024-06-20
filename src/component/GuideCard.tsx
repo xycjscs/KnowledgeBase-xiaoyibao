@@ -7,7 +7,7 @@ export const GuideCard = ({ name, description, author, link }: Guide) => (
     <h3 className="mb-1">《{name}》</h3>
     <p>{description}</p>
     <p>
-      <strong>作者:</strong> {author}
+      <strong>作者：</strong> {author}
     </p>
     <p>
       <a className="text-decoration-none" href={link} target="_blank">
