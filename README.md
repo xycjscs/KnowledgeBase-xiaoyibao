@@ -1,6 +1,7 @@
 # KnowledgeBase-xiaoyibao
 
 [![Web deployment](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml/badge.svg)][1]
+[![PDF downloader](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml/badge.svg)][2]
 
 这是 xiaoyibao 扩展项目中的知识库项目，用于存储生成 RAG 所需的医疗专业资料。
 
@@ -117,6 +118,14 @@ pnpm start
 
 计划仓库中不同 json 文档存储不同的 `{标题-说明-链接}` 库，README 文件自动读取 json 文件渲染首页，下载脚本自动读取 json 并执行下载。
 
+## 批量下载 PDF 并转换为 Markdown
+
+执行 `tool` 目录下的 `fetch-PDF.sh` 脚本，自动从 `data` 目录中的 JSON 文件中找出所有 PDF 链接，下载到 `downloads` 目录后再转为 Markdown、图片等独立文件。
+
+```sh
+tool/fetch-PDF.sh data downloads
+```
+
 ## 维基百科形式的协作
 
 文档以维基百科的形式进行协同创作，任何人可以修改文档中的任何内容，包括删减不合适的目录。
@@ -125,10 +134,7 @@ pnpm start
 
 ## 待开发功能或资料
 
-- [ ] 自动化 PDF 文档转 Markdown 文本
-
-  - https://github.com/bsorrentino/pdf-tools
-  - https://github.com/opengovsg/pdf2md
+- [x] 自动化 PDF 文档转 Markdown 文本
 
 - [ ] QA 对数据库
 
@@ -137,3 +143,4 @@ pnpm start
 - [x] 自动将文档更新于一链接
 
 [1]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml
+[2]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml
