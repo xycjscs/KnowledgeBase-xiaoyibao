@@ -57,10 +57,10 @@ pip install requests
 ### 4. 执行数据库下载指令
 
 ```sh
-python downloader.py nutritionDB.json
+python tool/downloader.py nutritionDB.json
 ```
 
-## Web 前端
+## Web 前端开发
 
 ### 1. 安装 Node.js 和 Git
 
@@ -94,8 +94,9 @@ cd KnowledgeBase-xiaoyibao
 ### 3. 安装并启动开发环境
 
 ```sh
-npm install
-npm start
+npm install pnpm -g
+pnpm install
+pnpm start
 ```
 
 ## 计划准备

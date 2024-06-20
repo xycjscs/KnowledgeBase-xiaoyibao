@@ -9,14 +9,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+            version: 9
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+            node-version: 18
+            cache: pnpm
 
       - name: Install & Build
         run: |
-          npm install
-          npm run build
+          pnpm i --frozen-lockfile
+          pnpm build
 
       - name: Deploy to GitHub pages
         uses: peaceiris/actions-gh-pages@v3
