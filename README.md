@@ -9,7 +9,7 @@
 
 最终获益者为患者；仓库直接使用者为小胰宝或其他开源项目的技术人员；内容贡献者为医学相关专家。
 
-面对此仓库，患者和医疗卫生人员可直接在渲染的网站上阅读pdf资料；小胰宝相关开发人员可快速构建RAG知识库测试LLM；其他开发人员可获取可用于预训练的专病语料和微调的QA对。
+面对此仓库，患者和医疗卫生人员可直接在渲染的网站上阅读 pdf 资料；小胰宝相关开发人员可快速构建 RAG 知识库测试 LLM；其他开发人员可获取可用于预训练的专病语料和微调的 QA 对。
 
 ## 数据库目录
 
@@ -17,51 +17,7 @@
 
 您可以通过此链接查看并访问我们的数据库目录，以便获取相关的信息和资源。
 
-## 下载数据方法
-
-### 1. 安装 Python
-
-#### Windows
-
-```sh
-winget install python -h
-# 或
-choco install python -y
-refreshenv
-```
-
-#### Mac
-
-```sh
-brew install python
-```
-
-#### Linux
-
-所有标准发行版已内置，如需自行安装最新版，参考：https://idea2app.feishu.cn/docx/doxcngAN2tjRKS9TH8LHQaXVSUa#doxcnMysQm0kYGgkUAtfQETXoRe
-
-### 2. 更新 PIP 包管理器
-
-```sh
-python -m pip install --upgrade pip
-
-# 中国大陆教育网用户切换镜像
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 3. 安装 requests 包
-
-```sh
-pip install requests
-```
-
-### 4. 执行数据库下载指令
-
-```sh
-python tool/downloader.py nutritionDB.json
-```
-
-## Web 前端开发
+## 安装基础环境
 
 ### 1. 安装 Node.js 和 Git
 
@@ -84,7 +40,13 @@ brew install git node@18
 - [Node.js 官方教程](https://nodejs.org/en/download/package-manager/all)
 - [Git 官方教程](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_on_linux)
 
-### 2. 下载源码
+### 2. 安装 PNPM
+
+```sh
+npm install pnpm -g
+```
+
+### 3. 下载源码
 
 ```sh
 cd ~/Desktop
@@ -92,12 +54,62 @@ git clone https://github.com/xycjscs/KnowledgeBase-xiaoyibao.git
 cd KnowledgeBase-xiaoyibao
 ```
 
-### 3. 安装并启动开发环境
+### 4. 安装依赖
 
 ```sh
-npm install pnpm -g
 pnpm install
-pnpm start
+```
+
+## 数据下载、转换、上传
+
+### 1. 安装 cURL
+
+#### Windows
+
+在 CMD 或 PowerShell 等原生命令行中运行需安装 cURL：
+
+```sh
+winget install cURL.cURL -h
+# 或
+choco install curl -y
+```
+
+#### Mac
+
+已内置。
+
+#### Linux
+
+已内置。
+
+### 2. 配置环境变量
+
+在项目根目录的 `.env` 文件中，将相应变量值替换为你实际使用的值。
+
+### 3. 执行命令
+
+```sh
+pnpm tool nutritionDB.json
+```
+
+详细用法可执行：
+
+```sh
+pnpm tool -h
+```
+
+## Web 前端开发
+
+### 启动开发环境
+
+```sh
+npm start
+```
+
+### 构建生产环境
+
+```sh
+pnpm build
 ```
 
 ## 计划准备

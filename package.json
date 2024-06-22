@@ -8,7 +8,6 @@
   "dependencies": {
     "@opendocsg/pdf2md": "^0.1.31",
     "@tech_query/node-toolkit": "^1.2.1",
-    "cli-progress": "^3.12.0",
     "commander-jsx": "^0.6.9",
     "core-js": "^3.37.1",
     "dom-renderer": "^2.1.8",
@@ -22,7 +21,6 @@
   },
   "devDependencies": {
     "@parcel/config-default": "~2.12.0",
-    "@types/cli-progress": "^3.11.5",
     "@types/node": "^18.19.38",
     "parcel": "~2.12.0",
     "parcel-transformer-mdx": "^0.3.2"
