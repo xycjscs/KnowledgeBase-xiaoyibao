@@ -1,8 +1,8 @@
 #! /usr/bin/env ts-node
 
 import { Command, createCommand } from "commander-jsx";
-import { readFile } from "fs/promises";
 import { basename, extname, join } from "path";
+import { fs } from "zx";
 
 import { download, transform, upload } from "./core";
 import { changeExtensionName, makeAbsolutePath } from "./utility";
@@ -74,9 +74,7 @@ type ArticleMeta = Record<"name" | "description" | "author" | "link", string>;
 
 async function batcher({}, metaFile: string, batchFolder = "downloads") {
   const rootFolder = makeAbsolutePath(batchFolder),
-    metaData = await readFile(makeAbsolutePath(metaFile));
-
-  const meta: ArticleMeta[] = JSON.parse(metaData + "");
+    meta: ArticleMeta[] = await fs.readJSON(makeAbsolutePath(metaFile));
 
   for (const { name, link } of meta)
     try {

@@ -1,4 +1,3 @@
-import { spawn } from "@tech_query/node-toolkit";
 import { readFile, rename, writeFile } from "fs/promises";
 import { basename, dirname, extname, join } from "path";
 
@@ -9,6 +8,7 @@ import pdf2md from "@opendocsg/pdf2md";
 import { turndown } from "edkit";
 import { HTTPClient } from "koajax";
 import { getTextExtractor } from "office-text-extractor";
+import { $ } from "zx/core";
 
 const { FASTGPT_API_HOST, FASTGPT_API_TOKEN, FASTGPT_DATASET_ID } = process.env;
 
@@ -26,13 +26,7 @@ const uploader = new HTTPClient({
 });
 
 export async function download(source: string, target: string) {
-  await spawn("curl", [
-    "--create-dirs",
-    "--output-dir",
-    dirname(target),
-    "-O",
-    source,
-  ]);
+  await $`curl --create-dirs --output-dir ${dirname(target)} -O ${source}`;
 
   const targetPath = dirname(target),
     sourceName = basename(new URL(source).pathname);
