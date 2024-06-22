@@ -1,19 +1,18 @@
-import { mkdir, open, readFile, writeFile } from "fs/promises";
-import { basename, dirname, extname } from "path";
+import { spawn } from "@tech_query/node-toolkit";
+import { readFile, rename, writeFile } from "fs/promises";
+import { basename, dirname, extname, join } from "path";
 
 // for JS & DOM API Polyfill
 import "./utility";
 
 import pdf2md from "@opendocsg/pdf2md";
-import { SingleBar } from "cli-progress";
 import { turndown } from "edkit";
 import { HTTPClient } from "koajax";
 import { getTextExtractor } from "office-text-extractor";
 
 const { FASTGPT_API_HOST, FASTGPT_API_TOKEN, FASTGPT_DATASET_ID } = process.env;
 
-const downloader = new HTTPClient({ responseType: "arraybuffer" }),
-  extractor = getTextExtractor();
+const extractor = getTextExtractor();
 
 const uploader = new HTTPClient({
   baseURI: new URL("api/", FASTGPT_API_HOST) + "",
@@ -27,25 +26,18 @@ const uploader = new HTTPClient({
 });
 
 export async function download(source: string, target: string) {
-  await mkdir(dirname(target), { recursive: true });
+  await spawn("curl", [
+    "--create-dirs",
+    "--output-dir",
+    dirname(target),
+    "-O",
+    source,
+  ]);
 
-  const stream = downloader.download(source),
-    file = await open(target, "a+"),
-    progressBar = new SingleBar({});
+  const targetPath = dirname(target),
+    sourceName = basename(new URL(source).pathname);
 
-  progressBar.start(100, 0);
-
-  try {
-    for await (const { buffer, loaded, percent } of stream) {
-      await file.write(Buffer.from(buffer), 0, buffer.byteLength, loaded);
-
-      progressBar.update(percent);
-    }
-  } finally {
-    await file.close();
-    progressBar.stop();
-    console.clear();
-  }
+  await rename(join(targetPath, sourceName), target);
 }
 
 export async function transform(source: string, target: string) {
