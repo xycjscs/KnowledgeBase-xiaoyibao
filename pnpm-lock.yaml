@@ -13,13 +13,13 @@ importers:
         version: 0.1.31(encoding@0.1.13)
       '@tech_query/node-toolkit':
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@18.19.37)
+        version: 1.2.1(@types/node@18.19.38)
       cli-progress:
         specifier: ^3.12.0
         version: 3.12.0
       commander-jsx:
         specifier: ^0.6.9
-        version: 0.6.9(@types/node@18.19.37)
+        version: 0.6.9(@types/node@18.19.38)
       core-js:
         specifier: ^3.37.1
         version: 3.37.1
@@ -42,8 +42,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       tsx:
-        specifier: ^4.15.6
-        version: 4.15.6
+        specifier: ^4.15.7
+        version: 4.15.7
       web-utility:
         specifier: ^4.4.0
         version: 4.4.0
@@ -55,8 +55,8 @@ importers:
         specifier: ^3.11.5
         version: 3.11.5
       '@types/node':
-        specifier: ^18.19.37
-        version: 18.19.37
+        specifier: ^18.19.38
+        version: 18.19.38
       parcel:
         specifier: ~2.12.0
         version: 2.12.0(@swc/helpers@0.5.11)
@@ -868,8 +868,8 @@ packages:
   '@types/node-fetch@2.6.11':
     resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
 
-  '@types/node@18.19.37':
-    resolution: {integrity: sha512-Pi53fdVMk7Ig5IfAMltQQMgtY7xLzHaEous8IQasYsdQbYK3v90FkxI3XYQCe/Qme58pqp14lXJIsFmGP8VoZQ==}
+  '@types/node@18.19.38':
+    resolution: {integrity: sha512-SApYXUF7si4JJ+lO2o6X60OPOnA6wPpbiB09GMCkQ+JAwpa9hxUVG8p7GzA08TKQn5OhzK57rj1wFj+185YsGg==}
 
   '@types/retry@0.12.5':
     resolution: {integrity: sha512-3xSjTp3v03X/lSQLkczaN9UIEwJMoMCA1+Nb5HfbJEQWogdeQIyVtTvxPXDQjZ5zws8rFQfVfRdz03ARihPJgw==}
@@ -2462,8 +2462,8 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
-  tsx@4.15.6:
-    resolution: {integrity: sha512-is0VQQlfNZRHEuSSTKA6m4xw74IU4AizmuB6lAYLRt9XtuyeQnyJYexhNZOPCB59SqC4JzmSzPnHGBXxf3k0hA==}
+  tsx@4.15.7:
+    resolution: {integrity: sha512-u3H0iSFDZM3za+VxkZ1kywdCeHCn+8/qHQS1MNoO2sONDgD95HlWtt8aB23OzeTmFP9IU4/8bZUdg58Uu5J4cg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3677,10 +3677,10 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tech_query/node-toolkit@1.2.1(@types/node@18.19.37)':
+  '@tech_query/node-toolkit@1.2.1(@types/node@18.19.38)':
     dependencies:
       '@babel/core': 7.24.7
-      '@types/node': 18.19.37
+      '@types/node': 18.19.38
       cross-spawn: 7.0.3
       file-type: 16.5.4
       fs-extra: 11.2.0
@@ -3705,7 +3705,7 @@ snapshots:
 
   '@types/cli-progress@3.11.5':
     dependencies:
-      '@types/node': 18.19.37
+      '@types/node': 18.19.38
 
   '@types/debug@4.1.12':
     dependencies:
@@ -3743,10 +3743,10 @@ snapshots:
 
   '@types/node-fetch@2.6.11':
     dependencies:
-      '@types/node': 18.19.37
+      '@types/node': 18.19.38
       form-data: 4.0.0
 
-  '@types/node@18.19.37':
+  '@types/node@18.19.38':
     dependencies:
       undici-types: 5.26.5
 
@@ -3754,7 +3754,7 @@ snapshots:
 
   '@types/ssri@7.1.5':
     dependencies:
-      '@types/node': 18.19.37
+      '@types/node': 18.19.38
 
   '@types/turndown@5.0.4': {}
 
@@ -3970,9 +3970,9 @@ snapshots:
 
   comma-separated-tokens@2.0.3: {}
 
-  commander-jsx@0.6.9(@types/node@18.19.37):
+  commander-jsx@0.6.9(@types/node@18.19.38):
     dependencies:
-      '@tech_query/node-toolkit': 1.2.1(@types/node@18.19.37)
+      '@tech_query/node-toolkit': 1.2.1(@types/node@18.19.38)
       tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/plugin-transform-modules-commonjs'
@@ -5763,7 +5763,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsx@4.15.6:
+  tsx@4.15.7:
     dependencies:
       esbuild: 0.21.5
       get-tsconfig: 4.7.5

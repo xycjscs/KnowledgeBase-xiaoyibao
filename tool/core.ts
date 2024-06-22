@@ -1,5 +1,5 @@
-import { open, readFile, writeFile } from "fs/promises";
-import { basename, extname } from "path";
+import { mkdir, open, readFile, writeFile } from "fs/promises";
+import { basename, dirname, extname } from "path";
 
 // for JS & DOM API Polyfill
 import "./utility";
@@ -27,6 +27,8 @@ const uploader = new HTTPClient({
 });
 
 export async function download(source: string, target: string) {
+  await mkdir(dirname(target), { recursive: true });
+
   const stream = downloader.download(source),
     file = await open(target, "a+"),
     progressBar = new SingleBar({});
@@ -41,6 +43,8 @@ export async function download(source: string, target: string) {
     }
   } finally {
     await file.close();
+    progressBar.stop();
+    console.clear();
   }
 }
 
@@ -54,7 +58,7 @@ export async function transform(source: string, target: string) {
       text = turndown.turndown(input.toString("utf-8"));
       break;
     case "pdf":
-      text = await pdf2md(input);
+      text = await pdf2md(input.buffer);
       break;
     case "docx":
     case "xlsx":
@@ -71,7 +75,7 @@ export async function transform(source: string, target: string) {
  */
 export async function upload(source: string, datasetId = FASTGPT_DATASET_ID) {
   const form = new FormData(),
-    buffer = await readFile(source);
+    { buffer } = await readFile(source);
 
   form.append(
     "data",
@@ -85,8 +89,7 @@ export async function upload(source: string, datasetId = FASTGPT_DATASET_ID) {
       metadata: {},
     })
   );
-  // @ts-ignore
-  form.append("file", buffer, basename(source));
+  form.append("file", new Blob([buffer]), basename(source));
 
   const { body } = await uploader.post(
     "core/dataset/collection/create/localFile",

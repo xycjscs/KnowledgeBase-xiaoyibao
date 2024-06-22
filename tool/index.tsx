@@ -42,6 +42,8 @@ async function downloader(
   await download(sourceURL, makeAbsolutePath(targetFile));
 
   console.timeEnd(targetFile);
+
+  process.exit();
 }
 
 async function transformer(
@@ -59,7 +61,7 @@ async function transformer(
 async function uploader({}, sourceFile: string, datasetId?: string) {
   console.time(sourceFile);
 
-  await upload(sourceFile, datasetId);
+  await upload(makeAbsolutePath(sourceFile), datasetId);
 
   console.timeEnd(sourceFile);
 }
@@ -68,7 +70,9 @@ type ArticleMeta = Record<"name" | "description" | "author" | "link", string>;
 
 async function batcher({}, metaFile: string, batchFolder = "downloads") {
   const rootFolder = makeAbsolutePath(batchFolder),
-    meta: ArticleMeta[] = JSON.parse((await readFile(metaFile)) + "");
+    metaData = await readFile(makeAbsolutePath(metaFile));
+
+  const meta: ArticleMeta[] = JSON.parse(metaData + "");
 
   for (const { name, link } of meta)
     try {

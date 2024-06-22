@@ -17,13 +17,13 @@
     "happy-dom": "^14.12.3",
     "koajax": "^1.1.2",
     "office-text-extractor": "^3.0.3",
-    "tsx": "^4.15.6",
+    "tsx": "^4.15.7",
     "web-utility": "^4.4.0"
   },
   "devDependencies": {
     "@parcel/config-default": "~2.12.0",
     "@types/cli-progress": "^3.11.5",
-    "@types/node": "^18.19.37",
+    "@types/node": "^18.19.38",
     "parcel": "~2.12.0",
     "parcel-transformer-mdx": "^0.3.2"
   },
@@ -32,6 +32,7 @@
     "clean": "rm -rf .parcel-cache/ dist/",
     "start": "npm run clean  &&  parcel src/index.html",
     "build": "npm run clean  &&  parcel build src/index.html --public-url .",
-    "tool": "cd tool/  &&  tsx index.tsx"
+    "tool": "cd tool/  &&  tsx index.tsx",
+    "debug-tool": "cd tool/  &&  tsx --inspect-brk index.tsx"
   }
 }
