@@ -148,6 +148,8 @@ tool/fetch-PDF.sh data downloads
 
 - [x] 自动化 PDF 文档转 Markdown 文本
 
+- [x] 支持非PDF格式资料：html/doc/xls/txt等
+
 - [ ] QA 对数据库
 
 - [ ] 专业人士审核机制
