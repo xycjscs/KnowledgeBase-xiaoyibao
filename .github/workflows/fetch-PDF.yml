@@ -9,9 +9,22 @@ jobs:
   Download-and-Transform:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - run: tool/fetch-PDF.sh data downloads
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install, Inject & Run
+        run: |
+          pnpm i
+          cat > .env <<EOF
+          ${{ secrets.ENV_FILE }}
+          EOF
+          find downloads/ -type f | xargs -I {} pnpm tool {}
 
       - uses: actions/upload-artifact@v4
         with:

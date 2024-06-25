@@ -24,11 +24,19 @@
   "devDependencies": {
     "@parcel/config-default": "~2.12.0",
     "@types/node": "^18.19.38",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "parcel": "~2.12.0",
-    "parcel-transformer-mdx": "^0.3.2"
+    "parcel-transformer-mdx": "^0.3.2",
+    "prettier": "^3.3.2"
+  },
+  "lint-staged": {
+    "*.{html,md,css,less,json,yml,js,ts,tsx}": "prettier --write"
   },
   "scripts": {
+    "prepare": "husky",
     "install": "cp -n .env.example .env",
+    "test": "lint-staged",
     "clean": "rm -rf .parcel-cache/ dist/",
     "start": "npm run clean  &&  parcel src/index.html",
     "build": "npm run clean  &&  parcel build src/index.html --public-url .",
