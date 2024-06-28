@@ -1,7 +1,8 @@
 # KnowledgeBase-xiaoyibao
 
-[![Web deployment](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml/badge.svg)][1]
-[![PDF downloader](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml/badge.svg)][2]
+[![Data submission](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/submit-data.yml/badge.svg)][1]
+[![Web deployment](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml/badge.svg)][2]
+[![PDF downloader](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml/badge.svg)][3]
 
 这是 xiaoyibao 扩展项目中的知识库项目，用于存储生成 RAG 所需的医疗专业资料。
 
@@ -16,6 +17,13 @@
 [访问当前的数据库目录](https://xycjscs.github.io/KnowledgeBase-xiaoyibao/)
 
 您可以通过此链接查看并访问我们的数据库目录，以便获取相关的信息和资源。
+
+## 维基百科形式的协作
+
+文档以维基百科的形式进行协同创作，任何人可以修改文档中的任何内容，包括删减不合适的目录。
+
+- [数据提交](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/issues/new?&template=submit-data.yml&labels=documentation&assignees=xycjscs)
+- [数据审核](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/issues?q=is%3Aopen+is%3Aissue+label%3Adocumentation)
 
 ## 安装基础环境
 
@@ -89,7 +97,7 @@ choco install curl -y
 ### 3. 执行命令
 
 ```sh
-pnpm tool nutritionDB.json
+pnpm tool nutritionDB.yml
 ```
 
 详细用法可执行：
@@ -116,25 +124,19 @@ pnpm build
 
 ### 1. 癌症患者营养食谱知识库
 
-对应数据库文件为 `nutritionDB.json`
+对应数据库文件为 `nutritionDB.yml`
 
 ### 2. 癌症患者心理辅导知识库
 
-对应数据库文件为 `PsychologicalDB.json`
+对应数据库文件为 `PsychologicalDB.yml`
 
 ### 3. 高尿酸人群饮食知识库
 
-对应数据库文件为 `HyperuricemiaDB.json`
+对应数据库文件为 `HyperuricemiaDB.yml`
 
 > 资料通过“下载链接+下载脚本”形式储存。
 
-计划仓库中不同 json 文档存储不同的 `{标题-说明-链接}` 库，README 文件自动读取 json 文件渲染首页，下载脚本自动读取 json 并执行下载。
-
-## 维基百科形式的协作
-
-文档以维基百科的形式进行协同创作，任何人可以修改文档中的任何内容，包括删减不合适的目录。
-
-贡献者可通过修改 json 文件提交代码，提交代码前需要检查下载脚本是否可以正确执行。
+计划仓库中不同 YAML 文档存储不同的 `{标题-说明-链接}` 库，README 文件自动读取 YAML 文件渲染首页，下载脚本自动读取 YAML 并执行下载。
 
 ## 待开发功能或资料
 
@@ -150,5 +152,6 @@ pnpm build
 
 - [x] 自动将文档更新于一链接
 
-[1]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml
-[2]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml
+[1]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/submit-data.yml
+[2]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml
+[3]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml

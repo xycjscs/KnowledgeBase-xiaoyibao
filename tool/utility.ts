@@ -4,6 +4,12 @@ import { packageOf } from "@tech_query/node-toolkit";
 import { config } from "dotenv";
 import { Window } from "happy-dom";
 import { extname, isAbsolute, join } from "path";
+import { parse } from "yaml";
+import { fs } from "zx";
+
+const window = new Window();
+
+Reflect.set(globalThis, "document", window.document);
 
 // set `package.json`'s foldr as Current Working Directory
 const { path = process.cwd() } = packageOf();
@@ -16,6 +22,14 @@ export const makeAbsolutePath = (raw: string, cwd = path) =>
 export const changeExtensionName = (raw: string, extension: string) =>
   `${raw.slice(0, -extname(raw).length)}.${extension}`;
 
-const window = new Window();
+export async function readMeta(filePath: string) {
+  filePath = makeAbsolutePath(filePath);
 
-Reflect.set(globalThis, "document", window.document);
+  switch (extname(filePath).toLowerCase()) {
+    case ".json":
+      return fs.readJSON(filePath);
+    case ".yml":
+    case ".yaml":
+      return parse(filePath);
+  }
+}

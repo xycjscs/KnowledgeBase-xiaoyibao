@@ -2,10 +2,9 @@
 
 import { Command, createCommand } from "commander-jsx";
 import { basename, extname, join } from "path";
-import { fs } from "zx";
 
 import { download, transform, upload } from "./core";
-import { changeExtensionName, makeAbsolutePath } from "./utility";
+import { changeExtensionName, makeAbsolutePath, readMeta } from "./utility";
 
 Command.execute(
   <Command
@@ -33,13 +32,13 @@ Command.execute(
       executor={uploader}
     />
   </Command>,
-  process.argv.slice(2)
+  process.argv.slice(2),
 );
 
 async function downloader(
   {},
   sourceURL: string,
-  targetFile = basename(new URL(sourceURL).pathname)
+  targetFile = basename(new URL(sourceURL).pathname),
 ) {
   console.time(targetFile);
 
@@ -53,7 +52,7 @@ async function downloader(
 async function transformer(
   {},
   sourceFile: string,
-  targetFile = changeExtensionName(sourceFile, "md")
+  targetFile = changeExtensionName(sourceFile, "md"),
 ) {
   console.time(targetFile);
 
@@ -74,13 +73,13 @@ type ArticleMeta = Record<"name" | "description" | "author" | "link", string>;
 
 async function batcher({}, metaFile: string, batchFolder = "downloads") {
   const rootFolder = makeAbsolutePath(batchFolder),
-    meta: ArticleMeta[] = await fs.readJSON(makeAbsolutePath(metaFile));
+    meta: ArticleMeta[] = await readMeta(metaFile);
 
   for (const { name, link } of meta)
     try {
       const filePath = join(
         rootFolder,
-        `${name}${extname(new URL(link).pathname)}`
+        `${name}${extname(new URL(link).pathname)}`,
       );
       const markdownPath = changeExtensionName(filePath, "md");
 
