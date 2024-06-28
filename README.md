@@ -154,6 +154,8 @@ tool/fetch-PDF.sh data downloads
 
 - [ ] 专业人士审核机制
 
+- [ ] 考虑到LLM开发人员多熟悉Python环境，增加以python实现主要或全部功能
+
 - [x] 自动将文档更新于一链接
 
 [1]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml
