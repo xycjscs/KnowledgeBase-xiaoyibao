@@ -1,0 +1,40 @@
+name: 数据提交
+description: 提交医疗参考资料，将由本专案邀请的专家审核后发布。
+labels:
+  - documentation
+body:
+  - type: input
+    id: author
+    attributes:
+      label: 作者
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 简介
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: 网址
+      description: 支持 HTML、PDF、Word、Excel、PPT 格式
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分类
+      description: 写入的文件名
+      options:
+        - HyperuricemiaDB
+        - nutritionDB
+        - PsychologicalDB
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)

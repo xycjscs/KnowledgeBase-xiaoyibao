@@ -1,0 +1,32 @@
+name: Data submission
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  Parse-and-Submit:
+    if: github.event.label == 'documentation'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: issue-parser
+        uses: edumserrano/github-issue-forms-parser@v1
+        with:
+          template-filepath: ".github/ISSUE_TEMPLATE/my-issue-form-template.yml"
+          issue-form-body: "${{ github.event.issue.body }}"
+
+      - name: Add data to YAML
+        run: |
+          cat << EOF >> ${{ steps.issue-parser.outputs.parsed-issue.category }}.yml
+          - name: "${{ github.event.issue.title }}"
+            author: "${{ steps.issue-parser.outputs.parsed-issue.author }}"
+            description: |
+              ${{ steps.issue-parser.outputs.parsed-issue.description }}
+            link: "${{ steps.issue-parser.outputs.parsed-issue.link }}"
+          EOF
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          title: "[add] data of ${{ github.event.issue.title }}"
+          body: "closes #${{ github.event.issue.number }}"
+          reviewers: "${{github.repository_owner}}"
