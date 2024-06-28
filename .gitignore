@@ -1,3 +1,6 @@
+# Data files
+data/*.json
+
 # CLI files
 .env
 downloads/

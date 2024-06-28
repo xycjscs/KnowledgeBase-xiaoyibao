@@ -28,14 +28,17 @@
     "lint-staged": "^15.2.7",
     "parcel": "~2.12.0",
     "parcel-transformer-mdx": "^0.3.2",
-    "prettier": "^3.3.2"
+    "prettier": "^3.3.2",
+    "yaml-convert": "^1.0.1"
   },
   "lint-staged": {
     "*.{html,md,css,less,json,yml,js,ts,tsx}": "prettier --write"
   },
   "scripts": {
     "prepare": "husky",
-    "install": "cp -n .env.example .env",
+    "install": "npm run init-env  && npm run init-data",
+    "init-env": "cp -n .env.example .env",
+    "init-data": "find data/ -type f | grep -Ei .+\\.yml | sed -E 's/(.+)\\.yml/\\1/' | xargs -I {} npx yaml-convert -j {}.yml -o {}.json",
     "test": "lint-staged",
     "clean": "rm -rf .parcel-cache/ dist/",
     "start": "npm run clean  &&  parcel src/index.html",
