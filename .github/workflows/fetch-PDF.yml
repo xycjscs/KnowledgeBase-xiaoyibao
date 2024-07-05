@@ -24,7 +24,7 @@ jobs:
           cat > .env <<EOF
           ${{ secrets.ENV_FILE }}
           EOF
-          find downloads/ -type f | xargs -I {} pnpm tool {}
+          find data/ -type f | grep -Ei .+\\.yml | xargs -I {} pnpm tool {}
 
       - uses: actions/upload-artifact@v4
         with:
