@@ -11,19 +11,18 @@ jobs:
       - uses: actions/checkout@v4
 
       - id: issue-parser
-        uses: edumserrano/github-issue-forms-parser@v1
+        uses: stefanbuck/github-issue-parser@v3
         with:
-          template-filepath: ".github/ISSUE_TEMPLATE/submit-data.yml"
-          issue-form-body: "${{ github.event.issue.body }}"
+          template-path: ".github/ISSUE_TEMPLATE/submit-data.yml"
 
       - name: Add data to YAML
         run: |
-          cat << EOF >> ${{ steps.issue-parser.outputs.parsed-issue.category }}.yml
+          cat << EOF >> ${{ steps.issue-parser.outputs.issueparser_category }}.yml
           - name: "${{ github.event.issue.title }}"
-            author: "${{ steps.issue-parser.outputs.parsed-issue.author }}"
+            author: "${{ steps.issue-parser.outputs.issueparser_author }}"
             description: |
-              ${{ steps.issue-parser.outputs.parsed-issue.description }}
-            link: "${{ steps.issue-parser.outputs.parsed-issue.link }}"
+              ${{ steps.issue-parser.outputs.issueparser_description }}
+            link: "${{ steps.issue-parser.outputs.issueparser_link }}"
           EOF
       - uses: peter-evans/create-pull-request@v6
         with:
