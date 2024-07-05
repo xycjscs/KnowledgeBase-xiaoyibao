@@ -29,4 +29,3 @@ jobs:
         with:
           title: "[add] data of ${{ github.event.issue.title }}"
           body: "closes #${{ github.event.issue.number }}"
-          reviewers: "${{github.repository_owner}}"
