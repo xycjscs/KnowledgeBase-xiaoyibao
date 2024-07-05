@@ -4,7 +4,10 @@
 [![Web deployment](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml/badge.svg)][2]
 [![PDF downloader](https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml/badge.svg)][3]
 
-这是 xiaoyibao 扩展项目中的知识库项目，用于存储生成 RAG 所需的医疗专业资料。
+这是 [xiaoyibao][4] 扩展项目中的知识库项目，用于存储生成 RAG 所需的医疗专业资料。
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)][5]
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)][6]
 
 ## 你可以在此获得什么？
 
@@ -147,7 +150,6 @@ pnpm build
 - [ ] QA 对数据库
 
 - [x] 专业人士审核机制
-      
 - [ ] 考虑到LLM开发人员多熟悉Python环境，增加以python实现主要或全部功能
 
 - [x] 自动将文档更新于一链接
@@ -155,3 +157,6 @@ pnpm build
 [1]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/submit-data.yml
 [2]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/deploy-Web.yml
 [3]: https://github.com/xycjscs/KnowledgeBase-xiaoyibao/actions/workflows/fetch-PDF.yml
+[4]: https://github.com/PancrePal-xiaoyibao/PancrePal-xiaoyibao
+[5]: https://codespaces.new/xycjscs/KnowledgeBase-xiaoyibao
+[6]: https://gitpod.io/?autostart=true#https://github.com/xycjscs/KnowledgeBase-xiaoyibao

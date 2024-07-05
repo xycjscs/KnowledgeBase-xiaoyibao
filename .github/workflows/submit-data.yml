@@ -5,7 +5,7 @@ on:
       - labeled
 jobs:
   Parse-and-Submit:
-    if: github.event.label == 'documentation'
+    if: github.event.label.name == 'documentation'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
