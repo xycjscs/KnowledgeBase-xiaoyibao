@@ -13,7 +13,7 @@ jobs:
       - id: issue-parser
         uses: edumserrano/github-issue-forms-parser@v1
         with:
-          template-filepath: ".github/ISSUE_TEMPLATE/my-issue-form-template.yml"
+          template-filepath: ".github/ISSUE_TEMPLATE/submit-data.yml"
           issue-form-body: "${{ github.event.issue.body }}"
 
       - name: Add data to YAML
