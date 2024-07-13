@@ -17,7 +17,7 @@ jobs:
 
       - name: Add data to YAML
         run: |
-          cat << EOF >> ${{ steps.issue-parser.outputs.issueparser_category }}.yml
+          cat << EOF >> data/${{ steps.issue-parser.outputs.issueparser_category }}.yml
           - name: "${{ github.event.issue.title }}"
             author: "${{ steps.issue-parser.outputs.issueparser_author }}"
             description: |
